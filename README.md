@@ -7,7 +7,7 @@ Mobile game data simple analysis
    * Compare DAU changes over time.
    * Can you identify any trends in data?
    * Can you find any ups or drops that are out of the normal behaviour?
-   * What do you think why do they happen  
+   * What do you think why do they happen?
 3. Analyse sales:
    * Analyse the geographic split of the revenue and the users.
    * Calculate average revenue per user per market.
