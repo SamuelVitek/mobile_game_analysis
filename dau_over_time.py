@@ -38,7 +38,8 @@ dau = px.scatter(dau_over_time_series, x=pd.to_datetime(dau_over_time['date']).u
                  title='Daily Active Users',
                  trendline="lowess",
                  trendline_options=dict(frac=0.1),
-                 labels=dict(x="Days throughout year 2016", total_daily_users="Total Daily Active Users",
+                 labels=dict(x="Days in year 2016",
+                             account_id="Total users",
                              trendline="Trend"),
                  trendline_color_override='orangered')
 
