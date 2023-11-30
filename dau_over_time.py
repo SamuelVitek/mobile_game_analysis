@@ -30,8 +30,10 @@ dau_over_time_series = account_date_session.groupby('date')['account_id'].count(
 dau_over_time = dau_over_time_series.reset_index()
 
 # Plot with trend line using 'lowess' (data smoothing)
-# x-axis - days of the year 2016
-# y-axis - number of users logged each day
+# x - days of the year 2016
+# y - number of users logged each day
+# trenline - local polynomial regression to create a readable relevant trend line
+# trendline_options - fraction setting smoothing (the smaller the "less smooth" it will be)
 dau = px.scatter(dau_over_time_series, x=pd.to_datetime(dau_over_time['date']).unique(), y='account_id',
                  title='Daily Active Users',
                  trendline="lowess",
