@@ -34,7 +34,7 @@ revenue_per_country.dropna(inplace=True)
 # Converting cents to euros
 revenue_per_country['iap_price_usd_cents'] = revenue_per_country['iap_price_usd_cents'] / 100.
 
-# Grouping data by country_name and summing sales were made in each country throughout the year
+# Grouping data by country_name and summing sales made in each country throughout the year
 revenue_per_country = revenue_per_country.groupby('country_name')['iap_price_usd_cents'].sum()
 revenue_per_country = revenue_per_country.reset_index()
 
