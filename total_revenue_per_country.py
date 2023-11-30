@@ -4,7 +4,6 @@ from ast import literal_eval
 import pandas as pd
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-import plotly.express as px
 
 # Display options in order not to be constrained in some cases of printing
 pd.set_option('display.max_columns', 15)
