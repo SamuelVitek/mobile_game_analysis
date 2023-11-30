@@ -10,14 +10,14 @@ pd.set_option('display.max_rows', 120)
 pd.set_option('display.width', None)
 
 # Connecting to the data source, creating dataframes for each table
-connection = sqlite3.connect("sample.sqlite")
+connection = sqlite3.connect("data/sample.sqlite")
 account = pd.read_sql_query('select * from account', connection)
 
 # Deleting null values from the dataset because they would conflict in the plot
 account.dropna(inplace=True)
 
 # Importing dictionary of 'country_code':'country_name'
-with open('country_names.json', 'r') as f:
+with open('data/country_names.json', 'r') as f:
     data = literal_eval(f.read())
 
 # Creating new column country_name and filling it based on country_code using 'data' dictionary
