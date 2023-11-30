@@ -31,12 +31,12 @@ revenue_per_country = pd.merge(iap_purchase,
 # Deleting null values from the dataframe because they would conflict in the plot
 revenue_per_country.dropna(inplace=True)
 
+# Converting cents to euros
+revenue_per_country['iap_price_usd_cents'] = revenue_per_country['iap_price_usd_cents'] / 100.
+
 # Grouping data by country_name and summing sales were made in each country throughout the year
 revenue_per_country = revenue_per_country.groupby('country_name')['iap_price_usd_cents'].sum()
 revenue_per_country = revenue_per_country.reset_index()
-
-# Converting cents to euros
-revenue_per_country['iap_price_usd_cents'] = revenue_per_country['iap_price_usd_cents'] / 100.
 
 # Plot with trend line using 'lowess' (data smoothing)
 # locations - each country recorded in country_names column
