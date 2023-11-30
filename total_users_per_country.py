@@ -9,7 +9,7 @@ pd.set_option('display.max_columns', 15)
 pd.set_option('display.max_rows', 120)
 pd.set_option('display.width', None)
 
-# Connecting to the data source, creating dataframes for each table
+# Connecting to the data source, creating dataframes for account table
 connection = sqlite3.connect("data/sample.sqlite")
 account = pd.read_sql_query('select * from account', connection)
 
