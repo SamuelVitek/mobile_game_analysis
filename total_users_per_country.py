@@ -13,7 +13,7 @@ pd.set_option('display.width', None)
 connection = sqlite3.connect("data/sample.sqlite")
 account = pd.read_sql_query('select * from account', connection)
 
-# Deleting null values from the dataset because they would conflict in the plot
+# Deleting null values from the dataframe because they would conflict when mapping the country names
 account.dropna(inplace=True)
 
 # Importing dictionary of 'country_code':'country_name'
