@@ -1,4 +1,5 @@
 import sqlite3
+
 import pandas as pd
 import plotly.express as px
 
@@ -24,22 +25,20 @@ print(account.count(), '\n')
 print(account_date_session.count(), '\n')
 print(iap_purchase.count(), '\n')
 
-# Replacing null values in country with fill value XX to remain structure of data
-account['country_code'] = account['country_code'].fillna('XX', inplace = False)
-
-# Preparing dataset for plotting
+# Grouping data by date and counting how many account_ids (unique values) occurred in each day
 dau_over_time_series = account_date_session.groupby('date')['account_id'].count()
-dau_over_time = dau_over_time_series.reset_index(name='total_daily_users')
+dau_over_time = dau_over_time_series.reset_index()
 
 # Plot with trend line using 'lowess' (data smoothing)
-# x-axis - date
-# y-axis - number of users logged that day
+# x-axis - days of the year 2016
+# y-axis - number of users logged each day
 dau = px.scatter(dau_over_time_series, x=pd.to_datetime(dau_over_time['date']).unique(), y='account_id',
                  title='Daily Active Users',
                  trendline="lowess",
-                 trendline_options=dict(frac=0.2),
-                 labels=dict(x="Days throughout year 2016", total_daily_users="Total Daily Active Users", trendline="Trend"),
+                 trendline_options=dict(frac=0.1),
+                 labels=dict(x="Days throughout year 2016", total_daily_users="Total Daily Active Users",
+                             trendline="Trend"),
                  trendline_color_override='orangered')
 
-dau.update_traces(mode = 'lines')
+dau.update_traces(mode='lines')
 dau.show()
