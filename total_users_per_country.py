@@ -38,7 +38,7 @@ map_data = go.Figure(go.Choropleth(
     colorscale='Portland',
     text=['Country'],
     z=users_by_country['account_id'],
-    colorbar={'title': 'Total active users'}
+    colorbar={'title': 'Total users'}
 ))
 
 bar_chart_data = go.Figure(go.Bar(
