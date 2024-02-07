@@ -1,6 +1,8 @@
 # Mobile game data analysis
 Mobile game data simple analysis
 
+[Final Report](https://github.com/SamuelVitek/mobile_game_analysis/blob/main/report.pdf)
+
 ## The Questions
 1. Give us short description of datasets.
 2. Analyse the daily active users:
